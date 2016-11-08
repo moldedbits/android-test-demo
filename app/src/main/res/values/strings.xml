@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">AndroidJumpstart</string>
+    <string name="app_name">AndroidTestDemo</string>
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
@@ -10,4 +10,8 @@
     <string name="please_wait">Please wait</string>
     <string name="internet_slow_or_disconnected">No internet available or very slow.</string>
     <string name="something_went_wrong">Something went wrong.</string>
+    <string name="moldedbits">moldedbits</string>
+    <string name="username">Username</string>
+    <string name="password">Password</string>
+    <string name="login">Login</string>
 </resources>

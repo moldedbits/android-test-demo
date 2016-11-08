@@ -32,9 +32,11 @@ public class APIProvider {
     @Getter
     private static APIService service;
 
+    @Getter
+    private static OkHttpClient client;
+
     static {
         OkHttpClient.Builder builder = new OkHttpClient.Builder();
-        // TODO: 08/04/16 might want to remove this in prod
         builder.hostnameVerifier(new HostnameVerifier() {
             @Override
             public boolean verify(String s, SSLSession sslSession) {
@@ -53,7 +55,6 @@ public class APIProvider {
                 Request request = chain.request();
 
                 request = request.newBuilder()
-                        // // TODO: 08/04/16 add project specific stuff here
                         .addHeader("Authorization", "Basic YWRtaW46ZG90c2xhc2g=")
                         .build();
                 return chain.proceed(request);
@@ -71,9 +72,11 @@ public class APIProvider {
                 .setDateFormat("yyyy-MM-dd")
                 .create();
 
+        client = builder.build();
+
         sRetrofit = new Retrofit.Builder()
                 .baseUrl(BuildConfig.API_URL)
-                .client(builder.build())
+                .client(client)
                 .addConverterFactory(GsonConverterFactory.create(gson))
                 .build();
         service = sRetrofit.create(APIService.class);
