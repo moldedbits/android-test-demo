@@ -15,7 +15,7 @@ public class LoginPresenterTest {
     @Mock
     LoginView mLoginView;
 
-    LoginPresenter mPresenter;
+    private LoginPresenter mPresenter;
 
     @Before
     public void setup() {

@@ -119,11 +119,18 @@ dependencies {
     androidTestCompile 'com.android.support:support-annotations:25.0.0'
     androidTestCompile 'com.android.support.test:runner:0.5'
     androidTestCompile 'com.android.support.test:rules:0.5'
+
     // Optional -- Mockito framework
     testCompile 'org.mockito:mockito-core:1.10.19'
+
     // Optional -- UI testing with Espresso
     androidTestCompile 'com.android.support.test.espresso:espresso-core:2.2.2'
     androidTestCompile 'com.jakewharton.espresso:okhttp3-idling-resource:1.0.0'
+
+    // PowerMock
+    testCompile 'org.powermock:powermock:1.6.6'
+    testCompile 'org.powermock:powermock-module-junit4:1.6.6'
+    testCompile 'org.powermock:powermock-api-mockito:1.6.6'
 }
 repositories {
     mavenCentral()
