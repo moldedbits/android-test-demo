@@ -4,6 +4,7 @@ import com.moldedbits.android.api.APIService;
 import com.moldedbits.android.models.User;
 import com.moldedbits.android.models.request.LoginRequest;
 import com.moldedbits.android.models.response.LoginResponse;
+import com.moldedbits.android.utils.StaticUtils;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -73,5 +74,20 @@ class LoginPresenter implements Callback<LoginResponse> {
     public void onFailure(Call<LoginResponse> call, Throwable t) {
         mView.onLoginFailure(t.getMessage());
         Timber.e(t, "Could not login");
+    }
+
+    void useStaticCall() {
+        int sum = StaticUtils.add(1, 2);
+        mView.setUsernameError(String.valueOf(sum));
+    }
+
+    void useStaticWithCallback() {
+        StaticUtils.CustomCallback callback = new StaticUtils.CustomCallback() {
+            @Override
+            public void onResponse(String response) {
+                mView.setUsernameError(response);
+            }
+        };
+        StaticUtils.staticWithCallback(callback);
     }
 }
